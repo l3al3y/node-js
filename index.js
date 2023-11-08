@@ -30,7 +30,7 @@ async function run() {
 run().catch(console.dir);
 
 app.get('/', (req, res) => {
-res.send('undefined')
+res.send('Dr Soo Buat Test 22/11/2023')
 })
 
 app.listen(port, () => {
