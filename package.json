@@ -2,9 +2,9 @@
   "name": "js",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index1.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index1.js"
   },
   "author": "",
   "license": "ISC",

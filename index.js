@@ -30,24 +30,31 @@ async function run() {
 run().catch(console.dir);
 
 app.get('/', (req, res) => {
-res.send('Dr Soo Buat Test 22/11/2023',"Hello World")
 })
 
 app.listen(port, () => {
-console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port ${port}`)
 })
 
 app.post('/register', (req, res) => {
-    client.db("BENR2423").collection("Users").insertOne(
-        {
+  client.db("BENR2423").collection("Users").find({
+    "username" : { $eq: req.body.username}
 
-        "username": req.body.username,
-        "password": req.body.password
+  }).toArray().then((result) => {
+    if(result.length > 0){
+        res.status(400).send('Username already exist')
 
+    } else{
+        client.db("BENR2423").collection("Users").insertOne(
+            {
+          
+              "username": req.body.username,
+              "password": req.body.password
+          
+            })
+  
+
+  res.send('Berjaya')
         }
-    );
-    
-
-    res.send('defined')
 })
-    
+})
